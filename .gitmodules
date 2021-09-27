@@ -1,0 +1,3 @@
+[submodule "math410summary"]
+	path = math410summary
+	url = https://github.com/geiko246/math410summary.git
