@@ -1,0 +1,24 @@
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
+
+\renewcommand{\vec}{\mathbf}
+\newcommand*{\vertbar}{\rule[-1ex]{0.5pt}{2.5ex}}
+\let\oldref\ref
+\renewcommand{\ref}[1]{(\oldref{#1})}
+
+\def \encoder {\Phi}
+\def \obs {\phi}
+\def \decoder {\Psi}
+\def \koop {K}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+
+\newcommand{\ip}[2]{\left\langle #1 , #2 \right\rangle}

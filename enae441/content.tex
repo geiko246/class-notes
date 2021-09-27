@@ -1,0 +1,36 @@
+\let \vec \mathbf
+\section{Definitions}
+Details can be found in the appendix of the book.
+\begin{itemize} 
+	\item \textbf{Datetime} : 2021-09-02 09:45:23 [04:00] (the latter part is the timezone). Time zone is generally not used because we'll be using UTC.
+	\item $\vec r_\bullet$ : Location at Epoch 
+	\item J2000 Timekeeping system : Terrestrial time (approximately UTC)
+	\item Julia date number of days from an epoch Jan 1 4713 BC @ noon
+	\item MID Modified Julia Date JD - 2400000 epoch in 1858
+	\item Angles
+	\begin{itemize} 
+		\item Radians : whenever an angle appears as a polynomial
+		\item \textbf{Degrees} : Divides into \textbf{minutes} and \textbf{seconds}
+		\item \textbf{Degree} (in decimal) : divides into \textbf{arcminutes} (1/60 degree) \textbf{arcseconds} (1/60 arcminute) 45 12' 30''
+		\item Revolutions 
+		\item Hours : 24 hours = 1 revolution
+	\end{itemize}
+	\item Three properties characterize a coordinate system
+	\begin{itemize} 
+		\item center
+		\item orientation alignment of the axes
+		\item type: cartesian or spherical polar
+		\item principal axis is the first axis ($x$) 
+		\item perifocal plane is plane of orbit
+		\item Compass heading measured clockwise from North
+		\item Earth coordinates measure radial distance form urface of the earth rather than the center
+	\end{itemize}
+\end{itemize}
+
+% Thursday, September 16
+
+\begin{definition} [Hill Clohssey Wiltshire Equations (HCW)]
+	\[\ddot x -2x\dot y -3n^2x = f_x\]	
+	\[\ddot y +2n \dot x = f_y\]	
+	\[\ddot z - n^2z = f_z\]	
+\end{definition}

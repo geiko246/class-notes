@@ -1,0 +1,336 @@
+
+\section{Fields}
+
+\begin{definition} 
+	A field is a set $F$ such that $+,*$ where $x,y\in F$
+	are defined such that $x+y\in F$ and $x*y\in F$.
+
+	The operations satisfy
+	\begin{enumerate} 
+		\item $x+y=y+x$ (commutative)
+		\item $(x+y)+z = x+(y+z) $
+		\item there is a $0$-element where $0+x=x$
+		\item $x\in$ there exist $(-x) ]in F$ such that $x+(-x)=0$
+		\item $x*y=y*x$
+		\item $(xy)z = x(yz)$
+		\item there exists $1 \in F$ such that $\forall x\in F,1*x=x$
+		\item $x\in F \; x\neq 0$ there exists $x^{-1}\in F$ such that
+		$x*x^{-1}=1$
+		\item $x*(y+z) = x*y + x*z$
+	\end{enumerate}
+\end{definition}
+
+\begin{lemma}[Uniqueness of One]
+	Let $F$ be a field. $\forall x, 1x=x$. If $yx=x$, then $1=y$. 
+\end{lemma}
+
+\begin{theorem} 
+	$\mathbb{Q}$ is a field.
+\end{theorem}
+\begin{proof} 
+	$\mathbb{Q} \subseteq \mathbb{R}$ so all properties hold, provided
+	that $+,*,1,0,-x,x^{-1}$ are defined in $\mathbb{Q}$. 
+	Continue with proof of each operation acting on $x,y\in \mathbb{Q}$
+\end{proof}
+
+\begin{proof}[Example Proof]
+$\mathbb{C}$ is a field.	
+\begin{enumerate} 
+\item closed under operations $+,*$ (obvious)
+\item show $z,w\in \mathbb{C} \rightarrow z+w=w+z$
+\item multiplicative inverse
+\end{enumerate}
+\end{proof}
+
+\subsection{Solving Simulatenous Equations over the Reals}
+Given $a_{11}x_1 + \hdots + a_{1nx_n} = b_1$ through $a_{m1}x_1 + \hdots + a_{mn}x_n = b_1$. Solve $x_i$. Homogenous if $b_1 = b_2 = \hdots = 0$. Nonhomogeneous otherwise.
+
+\subsection{Gaussian Elmination}
+For any matrix $A$
+\begin{enumerate} 
+	\item multiply row by $C\neq 0$
+	\item add multiple $C$(row $j$) to row $i$
+	\item switch 2 rows
+\end{enumerate}
+
+$A$ is in reduced row echelon form if 
+\begin{equation}
+	\begin{bmatrix} 
+		1 &2 &0 &1 &0 \\
+		0 &0 &1 &2 &0 \\
+		0 &0 &0 &0 &1 \\
+		0 &0 &0 &0 &0 \\
+	\end{bmatrix}
+\end{equation}
+The first non-zero entry in each row is 1, called ``pivots''. All entries above/below pivots are 0. Pivots go down left to right. All rows which are 0's at bottom.
+
+
+\begin{theorem} 
+	$A$ is any $m\times n$ real matrix. Then, row operations $\rightarrow$ $E$ in row echelon form. Then, $E$ is unique.
+\end{theorem}
+\begin{proof}
+By Gaussian Elimination:
+\begin{enumerate} 
+	\item Beginning from top-left, scale for pivot
+	\item Add a multiple of the previous row to next row to null entry below pivot. Repeat for the remainder of the rows.
+	\item Repeat steps 1 and 2 for the remainder of rows.
+\end{enumerate}
+\end{proof}
+
+\let \vec \mathbf
+\begin{example} [Solving Homoegeneous Equations]
+	Given $A\vec x =\vec 0$	
+	\begin{enumerate} 
+		\item Use Gaussian Elimination to convert $A\rightarrow E$ (RREF)
+		\item 	$\begin{bmatrix} 
+		1 &2 &0 &1 &0 \\
+		0 &0 &1 &2 &0 \\
+		0 &0 &0 &0 &1 \\
+		0 &0 &0 &0 &0 \\
+		\end{bmatrix}$
+		Denote coumns with pivots. 
+		\item Number of free variables in solution is the number of non-pivot columns.
+	\end{enumerate}
+	Solution:
+
+	$\begin{bmatrix} 
+		1 &2 &0 &1 &0 \\
+		0 &0 &1 &2 &0 \\
+		0 &0 &0 &0 &1 \\
+		0 &0 &0 &0 &0 \\
+		\end{bmatrix}
+		\begin{bmatrix} 
+			x_1 \\ x_2 \\ x_3 \\ x_4\\x_5
+		\end{bmatrix} = \vec 0
+		$
+	
+	\begin{align*} 
+		x_1 + 2x_2 +  0x_3 +  1x_4 +  0x_5 = 0 \\
+		x_3 +  2x_4 +  0x_5 = 0 \\
+		x_5 = 0 \\
+	\end{align*}
+	Move pivots to right hand side...
+	\begin{align*} 
+		x_1 + 0x_3 +0x_5 =-2x_2 + 1x_4\\
+		x_3 +  0x_5 =  -2x_4 \\
+	\end{align*}
+	Choose $x_2,x_4$ arrbitrarliy. $x_1,x_2,x_3$ determined.
+	\begin{align} 
+		x_1=-2x_2-x_4\\
+		x_3=-2x_4 \\
+		x_5=0
+	\end{align}
+\end{example}
+
+The general form of the solution (obtaining the basis vectors of the codomain) is obtained from choosing 1 for a single non-pivot while 0 for other non-pivot for each basis vector.
+
+Note that the operations in Gaussian Elimination are well-defined over and field. The same process can be done in other spaces.
+
+Example:	
+\[\begin{pmatrix} 
+	1 & i & 0 & 1+ i\\
+	0 &0 &1 &3-i	
+\end{pmatrix}
+\begin{pmatrix} 
+	x_1\\x_2\\x_3\\x_4
+\end{pmatrix} = \begin{pmatrix} 
+	0 \\ 0
+\end{pmatrix}
+\]
+
+
+% Friday September 3
+
+In order to find the general solution, for each non-pivot $x_i,\hdots,x_{n-r}$, set the variable to 1 while the other non-pivots to 0. Every solution is a linear combination of the resulting vectors. The solution is an $n-r$ subspace of $\mathbb{R}^n$.
+
+\begin{theorem} 
+	\[A\vec x = \vec y\]
+	\begin{equation} 
+	\begin{pmatrix} 
+		A | &y_1\\
+		 | & y_2\\
+	\end{pmatrix}
+	\end{equation}
+	A augmented with RHS is the augmented matrix. Reduce to $E$ using row operations. This has at least one solution if and only if the 0-rows have y-term also 0.
+
+	If this holds, find one solution using same algorithm from before. The set of solutions is:
+	\[\{x_p+x_n | x_n \;\textrm{runs over all solutions of the associated homogeneous equation}\}\]
+\end{theorem}
+
+% LOOK UP: Smith Normal Form
+
+
+\begin{definition} 
+	Product of matrices. Given $A\times B$
+	\[c_{i,j} = \sum_{k=1}^n a_{i,k}b_{k,j}\]
+	such that $c_{i,j}$ are the entries of $C$, the product of $A$ and $B$.
+\end{definition}
+
+\begin{theorem} 
+	\begin{align} 
+		(AB)C = A(BC) \\
+		(A+B)C = AC+BC \\
+		I_n=\begin{pmatrix} 
+			1 & &0\\
+			 &\ddots \\
+			0 & & 1
+		\end{pmatrix} \\
+		I_mA = A \\
+		AI_n = A
+	\end{align}
+\end{theorem}
+
+\begin{corollary} 
+	A square matrix with either a left or right inverse is invertible.
+\end{corollary}
+
+\begin{corollary} 
+	Let $A = A_1A_2 \hdots A_k $ where $A = A_1A_2 \hdots A_k $ are $n\times n$ (square) matrices. Then $A$ is invertible $\leftrightarrow$ each $A_j$ is invertible.
+\end{corollary}
+
+
+\begin{theorem} 
+	For an $n\times n$ matrix $A$, the following are equivalent:
+	\begin{enumerate} 
+		\item $A$ is invertible
+		\item $A$ is a row-equivalent to the $n \times n$ identity matrix.
+		\item $A$ is a product of elementary matrices
+		\item The homogeneous system $AX=0$ has only the trivial solution $X=0$
+		\item The system of equation $AX=Y$ has a solution $X$ for each $n\times 1$ matrix $Y$
+	\end{enumerate}
+\end{theorem}
+
+\begin{corollary} 
+	If $A$ is invertible $n\times n$ matrix and if a sequence of elementary row operations reduces $A$ to the identity, then that same sequence of operations when applied to $I$ yeilds $A^{-1}$.
+\end{corollary}
+
+% Wednesday, September 15
+
+$V$, $S=\{W\}=\{W_1,W_2,\hdots,W_n\}\quad W_n\subset V$ set of subspaces. e.g. $\mathbb{R}^3 = \{x-axis,y-axis,z-axis,\{(x,y,z)|x+y+z=0\}\}\leftarrow \cap W = {(0,0,0)}$
+
+\begin{definition} 
+	\[\mathrm{Span}(S) = \left\{\sum^n_{i=1}\alpha_iv_i | v_i \in S, a_i\in F\right\}\]
+\end{definition}
+
+\begin{proposition} 
+
+\begin{enumerate} 
+	\item $\mathrm{Span}(S)$ is a subspace
+	\item $\mathrm{Span}(S) = \cap W$ where $W$ all subspaces
+\end{enumerate}	
+\end{proposition}
+
+\begin{definition} 
+	\[\{v_1,\hdots,v_n\}\] is linearly dependent if
+	\[v_j=\{\sum_{i=1,\hdots,n | i\neq j}a_iv_i\}\]
+	(ones is a linear combination of the others)
+	ex: $\{(1,-1,0),(1,0,-1),(0,1,-1)\}$ is linearly dependent : $v_2 = v_1 + v_3$
+\end{definition}
+
+\begin{lemma} 
+	$\{v_1,v_2,\hdots,v_n\}$ is linearly dependent if and only if there is a relation $\sum_{i=1}^n a_iv_i =0$ where some $a_i \neq 0$
+\end{lemma}
+
+\begin{definition} 
+	$\{v_1,\hdots,v_n\}$ is linearly independent if not  linearly dependent
+\end{definition}
+
+\begin{lemma} 
+	\begin{enumerate} 
+		\item $\{v_1,\hdots,v_n\}$ is linearly dependent if $\exists a_1,\hdots,a_n$ not all 0, $a_iv_i + \hdots + a_nv_n=0$
+		\item $\{v_1,\hdots,v_n\}$ is linearly independent if $a_1v_1+\hdots+a_1v_n=0 \rightarrow a_i=0 \,\forall i$
+	\end{enumerate}
+\end{lemma}
+
+%%% Friday, September 17
+
+\begin{definition} 
+	Given vector space $V$ and $\{v_1,\hdots,v_n\} = S$. $S$ is a basis of $V$ if:
+	\begin{enumerate} 
+		\item $\mathrm{Span}(S)	=V$ i.e. every vector $v\in V$ can be written as a linear combination of vectors in $S$. (Enough vectors)
+		\item $S$ is linearly independent (Not too many vectors)
+	\end{enumerate}
+\end{definition}
+
+\begin{lemma} 
+	$V,S$. $S$ is a basis $\Leftrightarrow$ $v\in V \Rightarrow v=\sum^n_{i=1} a_iv_i$ \textit{uniquely}
+\end{lemma}
+
+\begin{theorem} 
+	$V$ vector space. $B_1,B_2$ are bases of V.
+	\begin{equation} 
+		|B_1|=|B_2|
+	\end{equation}
+	(Also applies to $|\cdot| = \infty$ )
+\end{theorem}
+
+\begin{definition} 
+	$V$, $B$=basis. Then dimension of $V$ is $|B|$. This is well-defined by the previous theorem.
+\end{definition}
+
+\begin{theorem} 
+	$V$ spanned by $v_1,\hdots,v_n$. Suppose $\{w_1,\hdots,w_n\}$. If $w_1,\hdots,w_n$ linearly independent, then $n\leq m$.
+	Equivalently, if $n>m$ then $\{w_1,\hdots,w_n\}$ is linearly dependent.
+\end{theorem}
+
+\begin{theorem} 
+	$V,B_1,B_2$ bases, finite $|B_1|=|B_2|$.
+\end{theorem}
+
+\begin{proof} 
+	$B_1$ spans, $B_2$ linearly independent $\implies$ $|B_2|\leq |B_1$
+
+	$B_2$ spans, $B_1$ linearly independent $\implies$ $|B_1|\leq |B_2$
+\end{proof}
+
+\[\mathrm{dim}(\mathbb{C}^n,\mathbb{C}) = n \]
+\[\mathrm{dim}(\mathbb{C}^n,\mathbb{R}) = 2n \]
+
+% Monday, September 20
+
+\begin{theorem} 
+	\,
+	\begin{enumerate} 
+		\item $\{v_1,\hdots,v_n\}$ finite, linearly dependent. Then $\exists v_{m+1} \in V$ s.t. $\{v_1,\hdots,v_m,v_{m+1}\}$ is linearly independent.
+		\item $\{v_1,\hdots,v_m\}$ linearly dependent $\exists \mathrm{subset} S \subset {v_1,\ldots,v_m}$ s.t. S is linearly independent and $\mathrm{Span}(\{v_1,\hdots,v_m\})=S$
+	\end{enumerate}
+\end{theorem}
+
+\begin{corollary} 
+	$\vecs{v}{m}$ finite, lin. ind, $V$ finite dim. then $\exists w_1,\hdots,w_r$ s.t. $\vecs{v}{m} \cup \vecs{w}{r}$is a basis.
+\end{corollary}
+
+\begin{lemma} 
+	$V / F ,\, B=\vecs{v}{n}$ is bijective with $F^n$
+\end{lemma}
+
+This bijection requires a choice of basis.
+
+\begin{definition} 
+	$(V,B)$,\, $V$ vector space over $F,\, B=\vecs{v}{n}$. $v\in V$ can be written as a coordinate of $V,\,(a_1,\hdots,a_n)$ where
+	\[\sum a_iv_i = v\]
+\end{definition}
+
+\section{Linear Transformation}
+
+\begin{definition} 
+	$V,W$ vector spaces over field $F$. A linear transformation $T$ from V to W is a function (mapping) $T:V \rightarrow W$.
+
+	Such a linear transformation preserves:
+	\begin{enumerate} 
+		\item $v,w \in V \implies T(v+w) = Tv + Tw$
+		\item $c\in F,v\in V \implies T(cv) = cT(v)$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition} 
+	A homomorphism from $V$ to $W$ is a linear transformation from $V$ to $W$.
+\end{definition}
+
+\begin{definition} 
+	An isomorphism is a homomorphism that is both 1-1 and onto.
+\end{definition}
+
+\begin{lemma} 
+	Vector space $V$, basis $B=\vecs{v}{n}$, another vector space $W$ and map $T:V\rightarrow W$. Then, $T$ is a unique transformation such that $T(v_1),T(v_2), \hdots,T(v_n)$.
+\end{lemma}

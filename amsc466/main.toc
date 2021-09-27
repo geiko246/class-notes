@@ -1,0 +1,7 @@
+\contentsline {section}{\numberline {1}Nonlinear Equations}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Introduction to fixed point methods}{3}{}%
+\contentsline {subsection}{\numberline {1.2}Review of Basic Methods}{3}{}%
+\contentsline {subsection}{\numberline {1.3}Rigorous Study of Iterative Methods}{4}{}%
+\contentsline {subsubsection}{\numberline {1.3.1}Heuristic Derivation of $q=\frac {1+\sqrt {5}}{2}$}{5}{}%
+\contentsline {section}{\numberline {2}Introduction to Polynomial Interpolation}{6}{}%
+\contentsline {subsubsection}{\numberline {2.0.1}Notation}{7}{}%

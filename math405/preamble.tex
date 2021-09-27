@@ -1,0 +1,33 @@
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+
+% add circle package
+% add macro for subscript/superscript
+
+\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
+
+\renewcommand{\vec}{\mathbf}
+\newcommand*{\vertbar}{\rule[-1ex]{0.5pt}{2.5ex}}
+\let\oldref\ref
+\renewcommand{\ref}[1]{(\oldref{#1})}
+\newcommand{\vecs}[2]{\ensuremath{\{#1_1,#1_2,\hdots,#1_#2\}}}
+
+\def \encoder {\Phi}
+\def \obs {\phi}
+\def \decoder {\Psi}
+\def \koop {K}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{example}{Example}[section]
+\newtheorem{corollary}{Corollary}[section]
+
+\newcommand{\ip}[2]{\left\langle #1 , #2 \right\rangle}
